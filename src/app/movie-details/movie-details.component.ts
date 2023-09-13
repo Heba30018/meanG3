@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-movie',
-  templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.css'],
+  selector: 'app-movie-details',
+  templateUrl: './movie-details.component.html',
+  styleUrls: ['./movie-details.component.css'],
 })
-export class MovieComponent implements OnInit {
+export class MovieDetailsComponent implements OnInit {
   imagePath: string = 'https://image.tmdb.org/t/p/w500';
   allMovies: any[] = [
     {
@@ -349,45 +350,28 @@ export class MovieComponent implements OnInit {
       vote_count: 4456,
     },
   ];
-
-  allData: any[] = this.allMovies;
-
-  private searchval: string = '';
-  showMoviesDetails: boolean = true;
-
-  constructor() {}
-
-  set searchValue(value: string) {
-    this.searchval = value;
-    this.searchallMovies(value);
+  selectedmovie = {
+    adult: false,
+    backdrop_path: '/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg',
+    genre_ids: [35, 12, 14],
+    id: 346698,
+    original_language: 'en',
+    original_title: 'Barbie',
+    overview:
+      'Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.',
+    popularity: 3792.387,
+    poster_path: '/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg',
+    release_date: '2023-07-19',
+    title: 'Barbie',
+    video: false,
+    vote_average: 7.3,
+    vote_count: 4208,
+  };
+  constructor(private route: ActivatedRoute) {}
+  //lifecycle function
+  ngOnInit(): void {
+    let id = parseInt(this.route.snapshot.paramMap.get('id')!);
+    console.log(id);
+    this.selectedmovie = this.allMovies.find((movie) => movie.id == id);
   }
-
-  ngOnInit(): void {}
-
-  toggleDetails(movieId: number) {
-    console.log(movieId);
-    
-    for (const item of this.allMovies) {
-      if (item.id == movieId) {
-        item.toggleDiscription = !item.toggleDiscription;
-      }
-    }
-  }
-
-  searchallMovies(movieTitle: string) {
-    if (movieTitle == '') {
-      this.allMovies = this.allData;
-    } else {
-      this.allMovies = this.allMovies.filter((movie) => {
-        if (
-          movie.title
-            .toLocaleLowerCase()
-            .includes(movieTitle.toLocaleLowerCase())
-        ) {
-          return movie;
-        }
-      });
-    }
-  }
-
 }
