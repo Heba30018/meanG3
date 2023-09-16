@@ -13,17 +13,17 @@
           <!-- Transparent Background -->
           <div class="ui-trans clearfix">
             <!-- Image -->
-            <img [src]="imagePath + selectedmovie.poster_path" alt="" class="img-responsive" />
+            <img [src]="imagePath + selectedTV.poster_path" alt="" class="img-responsive" />
             <!-- Details -->
             <div class="ui-details clearfix">
               <!-- Movie Name -->
               <h2>
-                <a href="#">{{ selectedmovie.title }}</a>
+                <a href="#">{{ selectedTV.name }}</a>
               </h2>
               <!-- Labels -->
               <!-- Paragraph -->
               <p>
-                {{ selectedmovie.overview }}
+                {{ selectedTV.overview }}
               </p>
               <!-- Heading -->
             </div>
@@ -32,10 +32,10 @@
         <!-- Review -->
         <div class="ui-review">
           <!-- Heading -->
-          <h3>{{ selectedmovie.title }}</h3>
+          <h3>{{ selectedTV.name }}</h3>
           <!-- Paragraph -->
           <p>
-            {{ selectedmovie.overview }}
+            {{ selectedTV.overview }}
           </p>
   
           <!-- <mat-chip-listbox aria-label="Fish selection"> -->
