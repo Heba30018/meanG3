@@ -14,6 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { TvDetailsComponent } from './tv-details/tv-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     TvComponent,
     AboutComponent,
     PageNotFoundComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    TvDetailsComponent
   ],
   imports: [
     BrowserModule,

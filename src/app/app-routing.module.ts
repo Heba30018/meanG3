@@ -6,6 +6,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieComponent } from './movie/movie.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TvComponent } from './tv/tv.component';
+import { TvDetailsComponent } from './tv-details/tv-details.component';
 
 const routes: Routes = [
   // /home
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'movies', component: MovieComponent },
   { path: 'moviesdetails/:id', component: MovieDetailsComponent },
   { path: 'tv', component: TvComponent },
+  { path: 'tvdetails/:id', component: TvDetailsComponent },
   { path: 'about', component: AboutComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
