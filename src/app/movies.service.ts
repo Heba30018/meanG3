@@ -13,12 +13,13 @@ export class MoviesService {
 
   getAllMovies(pageNumber:number=1,language: string = 'en-US'): Observable<any> {
     return this.http.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${this.api}&language=${language}&page=${pageNumber}`
+      `https://api.themoviedb.org/3/movie/popular?api_key=d5cfb477e94bcaf9802ef5bfa419a1b6&language=${language}&page=${pageNumber}`
     );
   }
   getMovieById(movieId: number): Observable<any> {
     return this.http
-      .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.api}
+      .get(`
+      https://api.themoviedb.org/3/movie/${movieId}?api_key=d5cfb477e94bcaf9802ef5bfa419a1b6
     `);
   }
 
@@ -27,7 +28,7 @@ export class MoviesService {
       return this.getAllMovies();
     } else {
       return this.http.get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${this.api}&query=${movieName}`
+        `https://api.themoviedb.org/3/search/movie?api_key=d5cfb477e94bcaf9802ef5bfa419a1b6&query=${movieName}`
       );
     }
   }
